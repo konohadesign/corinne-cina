@@ -2917,6 +2917,14 @@ figure {
     width: 100%;
   }
 
+  .aspect-ratio {
+    min-width: auto;
+  }
+
+  .category-img {
+    height: auto;
+  }
+
   .h1-alt-style {
     font-size: 1.8rem;
   }
