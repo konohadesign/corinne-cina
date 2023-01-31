@@ -1139,6 +1139,16 @@ collections:
             label: Text
             name: 3259cc7a
             widget: string
+          - hint: >-
+              Original text: Vielen Dank! Ihr Beitrag ist eingegangen!, key:
+              -4b3aa954
+            label: Text
+            name: '-4b3aa954'
+            widget: string
+          - hint: 'Original text: Merci ! Votre demande a été reçue !, key: -528828b3'
+            label: Text
+            name: '-528828b3'
+            widget: string
       - label: Links
         name: links
         file: cms/_data/links.json
