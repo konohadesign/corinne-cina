@@ -703,9 +703,9 @@ collections:
             label: Text
             name: 785cfe5f
             widget: string
-          - hint: 'Original text: mail@mail.ch, key: -65e4a58d'
+          - hint: 'Original text: info@beratung-conseil.ch, key: 700c276b'
             label: Text
-            name: '-65e4a58d'
+            name: 700c276b
             widget: string
           - hint: 'Original text: Telefon, key: e0648bb'
             label: Text
