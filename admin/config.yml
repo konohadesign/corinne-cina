@@ -817,17 +817,13 @@ collections:
             label: Text
             name: '45e7299'
             widget: string
-          - hint: 'Original text: Bienvenue dans mon, key: 39b71ecf'
+          - hint: 'Original text: Bienvenue dans mon cabinet, key: -68a621f9'
             label: Text
-            name: 39b71ecf
+            name: '-68a621f9'
             widget: string
-          - hint: 'Original text: cabinet, key: 20256258'
+          - hint: "Original text: Je suis heureuse de vous conseiller dans l’espace de co-working «\_Espace Chèndâ\_» à Sierre. Des consultations via zoom sont également possibles., key: 49c9b557"
             label: Text
-            name: '20256258'
-            widget: string
-          - hint: "Original text: Je suis heureuse de vous conseiller dans l’espace de co-working«\_Espace Chèndâ\_» à Sierre. Des consultations via zoom sont également possibles., key: 44c23c2f"
-            label: Text
-            name: 44c23c2f
+            name: 49c9b557
             widget: text
           - hint: 'Original text: Me Prestations, key: 1d5c0eda'
             label: Text
@@ -1010,17 +1006,17 @@ collections:
             label: Text
             name: 9b2813e
             widget: text
-          - hint: 'Original text: Globale:, key: -1c6ee888'
+          - hint: 'Original text: globale, key: 7377122'
             label: Text
-            name: '-1c6ee888'
+            name: '7377122'
             widget: string
           - hint: "Original text: J’ai une approche globale\_de l’être humain et il m’est important d’aborder la personne dans sa dimension corporelle, psychique, sociale, spirituelle ainsi que dans sa dimension de l’espace et du temps., key: -1f88117a"
             label: Text
             name: '-1f88117a'
             widget: text
-          - hint: 'Original text: Bienveillante:, key: -2a8cea6e'
+          - hint: 'Original text: bienveillante, key: -ff65038'
             label: Text
-            name: '-2a8cea6e'
+            name: '-ff65038'
             widget: string
           - hint: >-
               Original text: Dans un climat de bienveillance, il m’est important
@@ -1029,9 +1025,9 @@ collections:
             label: Text
             name: 4cd53a9
             widget: text
-          - hint: 'Original text: Axée sur les ressources:, key: 49ce64df'
+          - hint: 'Original text: axée sur les ressources, key: -7d9ce525'
             label: Text
-            name: 49ce64df
+            name: '-7d9ce525'
             widget: string
           - hint: >-
               Original text: Je vous aide à découvrir vos ressources et à les
@@ -1040,9 +1036,9 @@ collections:
             label: Text
             name: '-26cbb870'
             widget: text
-          - hint: 'Original text: Orientée processus:, key: -225da9b4'
+          - hint: 'Original text: orientée processus, key: 46cde38e'
             label: Text
-            name: '-225da9b4'
+            name: 46cde38e
             widget: string
           - hint: >-
               Original text: Dans ma consultation, j’initie avec vous votre
@@ -1131,17 +1127,17 @@ collections:
             label: Text
             name: '-39e41b50'
             widget: text
-          - hint: "Original text: Qu'est-ce qui \_vous amène à moi ?Vous pouvez me contacter via le formulaire de contact, par téléphone ou par email. Je vous répondrai rapidement pour fixer un rendez-vous. Je me réjouis de vous rencontrer., key: 4a954728"
+          - hint: "Original text: Qu'est-ce qui \_vous amène à moi ? Vous pouvez me contacter via le formulaire de contact, par téléphone ou par email. Je vous répondrai rapidement pour fixer un rendez-vous. Je me réjouis de vous rencontrer., key: 6496ab66"
             label: Text
-            name: 4a954728
+            name: 6496ab66
             widget: text
           - hint: 'Original text: choisir..., key: 3b7e11d1'
             label: Text
             name: 3b7e11d1
             widget: string
-          - hint: 'Original text: Conseil extra-familial, key: 21a3db85'
+          - hint: 'Original text: Conseil structures d''accueil, key: 3259cc7a'
             label: Text
-            name: 21a3db85
+            name: 3259cc7a
             widget: string
       - label: Links
         name: links
@@ -1310,72 +1306,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 6d5acaac
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 30dbf55
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
             name: 779a8828
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i578695a6
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i625fd4a
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i9d5136a
             widget: object
             fields:
               - name: url
@@ -1401,332 +1332,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: i39e28229
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 29dcfff0
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 8dc2450
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 7497b54f
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: '31650252'
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i3a568ead
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 59ede054
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i62df6caf
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 58b43e70
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i35e0a2a3
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: idf2b63c
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 656a0bb0
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 78e188f0
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 2f3f8ac6
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 23fa05cf
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i47c18b30
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i1f38ad2e
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 95030d4
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 750bc1d3
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i626b602b
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 31d90ed6
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: 4c82e3d1
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i3f0e3a94
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: aaa9352
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i55ea6dc
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: i41da3930
+            name: i578695a6
             widget: object
             fields:
               - name: url
