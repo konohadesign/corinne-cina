@@ -2687,10 +2687,6 @@ figure {
     height: 70rem;
   }
 
-  .section.image-animation {
-    height: 130rem;
-  }
-
   .grid-halves.contact-two-grid {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
@@ -2846,7 +2842,16 @@ figure {
   }
 
   .gallery-images-wrap.second-column.web-gallery {
-    display: block;
+    display: -ms-grid;
+    display: grid;
+    padding-bottom: 3rem;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
   }
 
   ._404-text {

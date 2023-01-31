@@ -734,10 +734,10 @@ collections:
             name: 777c4f48
             widget: string
           - hint: >-
-              Original text: Thank you! Your submission has been received!, key:
-              5a0ea5a1
+              Original text: Vielen Dank! Ihr Beitrag ist eingegangen!, key:
+              -4b3aa954
             label: Text
-            name: 5a0ea5a1
+            name: '-4b3aa954'
             widget: string
           - hint: >-
               Original text: Oops! Something went wrong while submitting the
@@ -1138,12 +1138,6 @@ collections:
           - hint: 'Original text: Conseil structures d''accueil, key: 3259cc7a'
             label: Text
             name: 3259cc7a
-            widget: string
-          - hint: >-
-              Original text: Vielen Dank! Ihr Beitrag ist eingegangen!, key:
-              -4b3aa954
-            label: Text
-            name: '-4b3aa954'
             widget: string
           - hint: 'Original text: Merci ! Votre demande a été reçue !, key: -528828b3'
             label: Text
