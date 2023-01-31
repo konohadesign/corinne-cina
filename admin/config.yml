@@ -1,0 +1,2001 @@
+backend:
+  name: git-gateway
+  accept_roles:
+    - admin
+    - editor
+media_folder: theme/assets/images
+public_folder: /assets/images
+collections:
+  - name: pages
+    label: Pages
+    identifier_field: title
+    extension: md
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    folder: cms/pages
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '{{slug}}.html'
+      - label: Seo
+        name: seo
+        widget: object
+        collapsed: true
+        fields:
+          - label: Title
+            name: title
+            widget: string
+            required: false
+          - label: Description
+            name: description
+            widget: string
+            required: false
+          - label: No index
+            name: noindex
+            widget: boolean
+            default: false
+            required: false
+          - label: Open Graph Title
+            name: og:title
+            widget: string
+            required: false
+          - label: Open Graph Image
+            name: og:image
+            widget: image
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: Twitter Title
+            name: twitter:title
+            widget: string
+            default: summary
+            required: false
+          - label: Twitter Card
+            name: twitter:card
+            widget: string
+            default: summary
+            required: false
+          - label: Twitter Site
+            name: twitter:site
+            widget: string
+            required: false
+          - label: Twitter Creator
+            name: twitter:creator
+            widget: string
+            required: false
+          - label: Additional HTML tags
+            name: additional_tags
+            widget: text
+            required: false
+  - label: Theme Settings
+    name: settings
+    identifier_field: title
+    extension: json
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    files:
+      - label: General
+        name: site
+        file: cms/_data/settings/site.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: General
+          - hint: Full domain url (needed for a correct sitemap file)
+            name: domain
+            label: Domain
+            widget: string
+            required: false
+          - name: favicon
+            label: Favicon
+            widget: image
+            allow_multiple: false
+            required: false
+          - name: apple_touch_icon
+            label: Apple Touch Icon
+            widget: image
+            allow_multiple: false
+            required: false
+          - name: header_additional_content
+            label: Additional Content Header
+            hint: Content here will be placed before </head> tag
+            widget: text
+            required: false
+          - name: footer_additional_content
+            label: Additional Content Footer
+            hint: Content here will be placed before </body> tag
+            widget: text
+            required: false
+          - name: images_optimization
+            label: Images Optimization
+            widget: object
+            collapsed: false
+            fields:
+              - label: Image Formats
+                name: formats
+                widget: select
+                multiple: true
+                options:
+                  - label: Avif
+                    value: avif
+                  - label: Webp
+                    value: webp
+              - label: Image Dimensions
+                name: dimensions
+                widget: select
+                multiple: true
+                options:
+                  - label: '500'
+                    value: 500
+                  - label: '800'
+                    value: 800
+                  - label: '1080'
+                    value: 1080
+                  - label: '1600'
+                    value: 1600
+                  - label: '2000'
+                    value: 2000
+                  - label: '2600'
+                    value: 2600
+      - label: Colors
+        name: colors
+        file: cms/_data/colors.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Colors
+      - label: Texts
+        name: texts
+        file: cms/_data/texts.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Texts
+          - hint: 'Original text: Praxis, key: -7107ef3d'
+            label: Text
+            name: '-7107ef3d'
+            widget: string
+          - hint: 'Original text: Angebot, key: 3004fbfc'
+            label: Text
+            name: 3004fbfc
+            widget: string
+          - hint: 'Original text: Über mich, key: -2da98332'
+            label: Text
+            name: '-2da98332'
+            widget: string
+          - hint: 'Original text: Konditionen, key: 5291dcec'
+            label: Text
+            name: 5291dcec
+            widget: string
+          - hint: 'Original text: Kontakt, key: 43219700'
+            label: Text
+            name: '43219700'
+            widget: string
+          - hint: 'Original text: DE, key: 881'
+            label: Text
+            name: '881'
+            widget: string
+          - hint: 'Original text: |, key: 7c'
+            label: Text
+            name: 7c
+            widget: string
+          - hint: 'Original text: FR, key: 8cc'
+            label: Text
+            name: 8cc
+            widget: string
+          - hint: 'Original text: Protected Page, key: -11d4bbff'
+            label: Text
+            name: '-11d4bbff'
+            widget: string
+          - hint: 'Original text: Password, key: 4c641ebb'
+            label: Text
+            name: 4c641ebb
+            widget: string
+          - hint: >-
+              Original text: Incorrect password. Please try again., key:
+              -f5c4b5f
+            label: Text
+            name: '-f5c4b5f'
+            widget: string
+          - hint: 'Original text: Praxis für Beratung und Gesundheit, key: -1013ae7a'
+            label: Text
+            name: '-1013ae7a'
+            widget: string
+          - hint: 'Original text: Corinne Cina, key: 3758e217'
+            label: Text
+            name: '3758e217'
+            widget: string
+          - hint: 'Original text: Designed and developed by , key: -6bb908a7'
+            label: Text
+            name: '-6bb908a7'
+            widget: string
+          - hint: 'Original text: konoha-design.com, key: a9be8a0'
+            label: Text
+            name: a9be8a0
+            widget: string
+          - hint: 'Original text: Impressum & Datenschutzerklärung, key: 77b25012'
+            label: Text
+            name: 77b25012
+            widget: string
+          - hint: 'Original text: 404, key: c938'
+            label: Text
+            name: c938
+            widget: string
+          - hint: >-
+              Original text: Oopsie! Wir konnten deine Seite nicht finden, key:
+              4b9d63cc
+            label: Text
+            name: 4b9d63cc
+            widget: string
+          - hint: "Original text: Kein Problem.\_Kehre einfach zur Startseite zurück oder benutze die Links im Header um durch die Seite zu navigieren., key: -4f7ac75b"
+            label: Text
+            name: '-4f7ac75b'
+            widget: text
+          - hint: 'Original text: Zurück zur Startseite, key: -214c18de'
+            label: Text
+            name: '-214c18de'
+            widget: string
+          - hint: 'Original text: Datenschutzerklärung, key: -14b75991'
+            label: Text
+            name: '-14b75991'
+            widget: string
+          - hint: >-
+              Original text: LIMITATION OF LIABILITY EXCEPT AS EXPRESSLY SET
+              FORTH IN THIS AGREEMENT, NEITHER RECIPIENT NOR ANY CONTRIBUTORS
+              SHALL HAVE ANY LIABILITY FOR DEATH OR PERSONAL INJURY RESULTING
+              FROM LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES
+              SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE POSSIBILITY
+              THEREOF., key: 6440e216
+            label: Text
+            name: '6440e216'
+            widget: text
+          - hint: 'Original text: License, key: 6d291c21'
+            label: Text
+            name: 6d291c21
+            widget: string
+          - hint: >-
+              Original text: This License Agreement is published, Contributor
+              may choose to distribute the Program not expressly granted under
+              Section 7. You must include a text page in a commercial product
+              offering should do so in a reasonable royalty and payment
+              arrangement are not considered part of the Standard Version of the
+              date such litigation is filed., key: 7e9f11c1
+            label: Text
+            name: 7e9f11c1
+            widget: text
+          - hint: 'Original text: Addition, key: -4541e0e4'
+            label: Text
+            name: '-4541e0e4'
+            widget: string
+          - hint: >-
+              Original text: In addition, if Recipient institutes patent
+              litigation against any entity (including a cross-claim or
+              counterclaim in a commercial product offering. The obligations in
+              this section has the status `author-maintained' if the Electronic
+              Distribution Mechanism is maintained by a third party intellectual
+              property rights needed, if any. For example, a Contributor
+              includes the Program itself (excluding combinations of the
+              Contributor's choice., key: 65488989
+            label: Text
+            name: '65488989'
+            widget: text
+          - hint: >-
+              Original text: The Source Code of all files listed in Clause 6
+              above, in regard to the Copyright Holder, or any part of the
+              license to use the program in object code form under the terms of
+              that version. You may always be distributed only under the terms
+              of that work., key: 702b5db6
+            label: Text
+            name: 702b5db6
+            widget: text
+          - hint: >-
+              Original text: If you assert any patent claims licensable by a
+              third party. By copying, installing or otherwise using Python
+              1.6b1, alone or when combined with the Program. Program" means
+              either the Original Code, for commercial or non-commercial
+              purposes, provided that such additional attribution requirements
+              to the page history, and discussion page for details about the
+              suitability this software without specific, written prior
+              permission. STICHTING MATHEMATISCH CENTRUM DISCLAIMS ALL SUCH
+              WARRANTIES, INCLUDING WITHOUT LIMITATION, WARRANTIES THAT THE
+              OPERATION OF THE POSSIBILITY OF SUCH DAMAGES. EXPORT CONTROL
+              Recipient agrees to defend and indemnify every other Contributor
+              to the credit given on this website, or c) a list of conditions
+              and the party making the claim in sufficient detail that a license
+              under Licensed Patents to make, use, sell, offer for sale, have
+              made, use, practice, sell, and offer for sale, have made, and/or
+              otherwise dispose of the Package (7) You may also choose to
+              continue to use any license other than Sun has the sole purpose of
+              discussing and improving the Work, thus creating a Derived Program
+              from such Contributor, and informs licensees how to view a copy of
+              this License Agreement, BeOpen hereby grants Recipient a
+              non-exclusive, royalty-free, world-wide license to a patent
+              infringement litigation, then the only applicable Base Interpreter
+              is a work without altering any of the Covered Code; and/or (b) any
+              additional file created by various software programs in which case
+              the provisions set forth in this Agreement. The Eclipse Foundation
+              is the `Copyright Holder' under any license other than LUCENT has
+              the right to modify this Agreement., key: -2b0defa6
+            label: Text
+            name: '-2b0defa6'
+            widget: text
+          - hint: >-
+              Original text: REQUIREMENTS A Contributor may elect to distribute
+              software through any other intellectual property rights or
+              otherwise. As a condition to exercising the rights set forth in
+              Article 3 (Restriction) The license agreements (excluding licenses
+              to its Contributions set forth in Article 3 Paragraph 1 above
+              (including distributing this Package. License will not be deemed
+              to grant broad permissions to the copy that the imported text is
+              available from one person to another, in whole or in part
+              pre-release, untested, or not licensed at all., key: -b7d868a
+            label: Text
+            name: '-b7d868a'
+            widget: text
+          - hint: >-
+              Original text: For example, if a third party intellectual property
+              rights or otherwise. All rights in the term "modification".) Each
+              licensee is addressed as `you' in this version of the "historic
+              permission notice" adapted to Europen law because in some relevant
+              lists We believe you are nevertheless required to allow You to
+              comply with the CC-BY-SA license If you are re-using the page
+              history is sufficient. Licensing notice: Each copy or copies of
+              the State of New Versions., key: -3225146a
+            label: Text
+            name: '-3225146a'
+            widget: text
+          - hint: 'Original text: Praxis für Beratung, key: -60e9c133'
+            label: Text
+            name: '-60e9c133'
+            widget: string
+          - hint: 'Original text: und Gesundheit, key: 2cca5bd3'
+            label: Text
+            name: 2cca5bd3
+            widget: string
+          - hint: >-
+              Original text: "Um klar zu sehen genügt oft ein Wechsel der
+              Blickrichtung"., key: -30c6c901
+            label: Text
+            name: '-30c6c901'
+            widget: string
+          - hint: 'Original text: Antoine de Saint-Exupéry, key: -1881a921'
+            label: Text
+            name: '-1881a921'
+            widget: string
+          - hint: >-
+              Original text: In meiner Beratungstätigkeit stehen Sie und Ihr
+              gegenwärtiges Anliegen im Zentrum meiner Aufmerksamkeit. Ich
+              begegne Ihnen in einem wohlwollenden Rahmen, unterstütze Sie in
+              der Auseinandersetzung mit Ihrem Thema und begleite Sie in Ihrem
+              persönlichen Wachstum und der Verwirklichung Ihres Potenzials.
+              Mein Ansatz ist:, key: -3db0012
+            label: Text
+            name: '-3db0012'
+            widget: text
+          - hint: 'Original text: ganzheitlich, key: -10a17050'
+            label: Text
+            name: '-10a17050'
+            widget: string
+          - hint: >-
+              Original text: Ich sehe den Menschen als Einheit an und in meiner
+              Beratung ist es mir wichtig, den Menschen in allen seinen
+              Lebensbereichen zu erfassen: dem psychischen, körperlichen,
+              sozialen, spirituellen, zeitlichen und räumlichen Lebensbereich.,
+              key: 38abf159
+            label: Text
+            name: 38abf159
+            widget: text
+          - hint: 'Original text: wertschätzend, key: -48dc0347'
+            label: Text
+            name: '-48dc0347'
+            widget: string
+          - hint: >-
+              Original text: Für die Beratung ist mir ein Klima der
+              Wertschätzung wichtig, damit Sie sich in Ihrer Einzigartigkeit
+              zeigen können., key: 2581cf82
+            label: Text
+            name: 2581cf82
+            widget: text
+          - hint: 'Original text: ressourcenorientiert, key: -48c24a8a'
+            label: Text
+            name: '-48c24a8a'
+            widget: string
+          - hint: >-
+              Original text: Ich helfe Ihnen, Ihre Ressourcen zu entdecken und
+              diese in einen Prozess der positiven Veränderung einzubeziehen.,
+              key: 50b83fa7
+            label: Text
+            name: 50b83fa7
+            widget: text
+          - hint: 'Original text: prozessorientiert, key: -8de80e5'
+            label: Text
+            name: '-8de80e5'
+            widget: string
+          - hint: >-
+              Original text: In der Beratung ist es für mich wichtig, mit Ihnen
+              Ihren persönlichen oder betrieblichen Veränderungsprozess
+              anzustossen und Sie auf diesem Weg der Entwicklung zu begleiten.,
+              key: 74d35185
+            label: Text
+            name: 74d35185
+            widget: text
+          - hint: 'Original text: Diplome, key: -394e5aba'
+            label: Text
+            name: '-394e5aba'
+            widget: string
+          - hint: >-
+              Original text: Diplomausbildung körperzentrierte psychologische
+              Beraterin, Institut für körperzentrierte Psychotherapie IKP
+              Zürich,, key: 311ffd2d
+            label: Text
+            name: 311ffd2d
+            widget: text
+          - hint: 'Original text: i. A. seit 2021, key: -6f95b4b8'
+            label: Text
+            name: '-6f95b4b8'
+            widget: string
+          - hint: >-
+              Original text: Diplomierte Tangolehrerin, La Real Academia de
+              Tango Argentino Buenos Aires, 2016, key: -2cb499a
+            label: Text
+            name: '-2cb499a'
+            widget: string
+          - hint: >-
+              Original text: Diplomierte heilpädagogische Früherzieherin /
+              Heilpädagogin im Vorschulbereich,, key: -2d8c6fcf
+            label: Text
+            name: '-2d8c6fcf'
+            widget: string
+          - hint: 'Original text: ISP der Universität Basel, 1997, key: -72e2b5d9'
+            label: Text
+            name: '-72e2b5d9'
+            widget: string
+          - hint: >-
+              Original text: Diplomierte Kleinkinderzieherin, BFF Bern, 1991,
+              key: -57babe85
+            label: Text
+            name: '-57babe85'
+            widget: string
+          - hint: 'Original text: Zertifikate, key: 38589bc6'
+            label: Text
+            name: 38589bc6
+            widget: string
+          - hint: >-
+              Original text: Kieferbalance R.E.S.E.T., Apamed Rapperswil-Jona,
+              2022, key: -2d4434eb
+            label: Text
+            name: '-2d4434eb'
+            widget: string
+          - hint: >-
+              Original text: Neurotango ® Practitioner, nach Simone Schafhorst
+              Deutschland, 2021, key: -1bca882
+            label: Text
+            name: '-1bca882'
+            widget: string
+          - hint: >-
+              Original text: Gewaltfreie Kommunikation, Grundlagenseminar,
+              Pfäffikon ZH, 2018, key: 36df1ab3
+            label: Text
+            name: 36df1ab3
+            widget: string
+          - hint: >-
+              Original text: Akkreditierte Auditorin QualiKita, Bern, 2014, key:
+              5de7d41c
+            label: Text
+            name: 5de7d41c
+            widget: string
+          - hint: >-
+              Original text: Anthropologisches Studium, Europäisches Institut
+              anthropologischer Studien Freiburg, 2005-2007, key: 394bf031
+            label: Text
+            name: 394bf031
+            widget: text
+          - hint: 'Original text: Bereit für eine Beratung?, key: -2ee1ebcf'
+            label: Text
+            name: '-2ee1ebcf'
+            widget: string
+          - hint: 'Original text: Wagen Sie den ersten Schritt!, key: a81531d'
+            label: Text
+            name: a81531d
+            widget: string
+          - hint: 'Original text: Psychologische Beratung, key: -7cf274fa'
+            label: Text
+            name: '-7cf274fa'
+            widget: string
+          - hint: "Original text: Sind Sie mit einer schwierigen Lebenssituation oder mit einem belastenden Thema konfrontiert? Sie befinden Sie sich an einem Wendepunkt in Ihrem Leben und suchen Orientierung? Ich bin für Sie da, höre Ihnen aufmerksam \_zu und begleite Sie in Ihrem individuellen Prozess. Ich berate Sie gerne zu folgenden Themen:, key: 69493c15"
+            label: Text
+            name: 69493c15
+            widget: text
+          - hint: 'Original text: Lebens- und Sinnfragen, key: -4800aca6'
+            label: Text
+            name: '-4800aca6'
+            widget: string
+          - hint: 'Original text: Identitätsfragen, key: -2467225d'
+            label: Text
+            name: '-2467225d'
+            widget: string
+          - hint: 'Original text: Selbstwertprobleme, key: -4a95aa81'
+            label: Text
+            name: '-4a95aa81'
+            widget: string
+          - hint: 'Original text: Beziehungsprobleme, key: 3a9b960'
+            label: Text
+            name: 3a9b960
+            widget: string
+          - hint: 'Original text: Hypersensibilität, key: 4ab2e95a'
+            label: Text
+            name: 4ab2e95a
+            widget: string
+          - hint: >-
+              Original text: Frauenthemen (Kinderwunsch, Mutterschaft,
+              Partnerschaft, Wechseljahre…), key: 8f18f60
+            label: Text
+            name: 8f18f60
+            widget: string
+          - hint: 'Original text: Bindung / Lösung, key: -35cbae5b'
+            label: Text
+            name: '-35cbae5b'
+            widget: string
+          - hint: 'Original text: Trennung / Trauer, key: 7d55d289'
+            label: Text
+            name: 7d55d289
+            widget: string
+          - hint: 'Original text: Depressive Verstimmungen, key: -3c4dc838'
+            label: Text
+            name: '-3c4dc838'
+            widget: string
+          - hint: 'Original text: Ängste, key: 54b48387'
+            label: Text
+            name: 54b48387
+            widget: string
+          - hint: 'Original text: Erziehungsfragen, key: 6bf53b3f'
+            label: Text
+            name: 6bf53b3f
+            widget: string
+          - hint: >-
+              Original text: Begleitung Angehöriger psychisch erkrankten
+              Menschen, key: -5fd733d4
+            label: Text
+            name: '-5fd733d4'
+            widget: string
+          - hint: >-
+              Original text: Beratung und Unterstützung für Strukturen der
+              familienergänzenden Kinderbetreuung, key: -532f3ad7
+            label: Text
+            name: '-532f3ad7'
+            widget: string
+          - hint: >-
+              Original text: Sie wünschen, eine Steigerung der Qualität in Ihrem
+              Betrieb. Sie möchten Ihre Mitarbeitenden in pädagogischen Themen
+              unterstützen und ihr Know-how weiterentwickeln. Ich biete Ihnen
+              folgendes an:, key: 72167109
+            label: Text
+            name: '72167109'
+            widget: text
+          - hint: >-
+              Original text: Standortbestimmungen - Qualitätsanalyse in situ,
+              key: 15e2b622
+            label: Text
+            name: 15e2b622
+            widget: string
+          - hint: >-
+              Original text: Prozessbegleitung Qualitätsentwicklung, key:
+              34c940c0
+            label: Text
+            name: 34c940c0
+            widget: string
+          - hint: >-
+              Original text: Fachliche Beratung zu pädagogischen Themen, key:
+              -3c51abb3
+            label: Text
+            name: '-3c51abb3'
+            widget: string
+          - hint: 'Original text: Witnessing von Fachpersonal, key: 75030942'
+            label: Text
+            name: '75030942'
+            widget: string
+          - hint: 'Original text: Neurotango, key: -46358312'
+            label: Text
+            name: '-46358312'
+            widget: string
+          - hint: >-
+              Original text: Neurotango ist eine Trainingsmethode mit Musik und
+              Bewegung in Anlehnung an den argentinischen Tango, welche sich
+              positiv auf die kognitive, neurologische, psychische und soziale
+              Ebene auswirkt. Ich biete den Einsatz dieser Methode im Einzel-,
+              Paar- oder Gruppensetting bei folgenden Problemen an:, key:
+              -3ada6f9
+            label: Text
+            name: '-3ada6f9'
+            widget: text
+          - hint: 'Original text: Demenz, key: 79cbe585'
+            label: Text
+            name: 79cbe585
+            widget: string
+          - hint: 'Original text: Parkinson, key: -332ff7d'
+            label: Text
+            name: '-332ff7d'
+            widget: string
+          - hint: 'Original text: Verlust-Trauer-Einsamkeit, key: -343d6218'
+            label: Text
+            name: '-343d6218'
+            widget: string
+          - hint: >-
+              Original text: Rolle und Verantwortung in Partnerschaft, key:
+              4d8194e1
+            label: Text
+            name: 4d8194e1
+            widget: string
+          - hint: 'Original text: Kiefer R.E.S.E.T., key: -4ee8b1a9'
+            label: Text
+            name: '-4ee8b1a9'
+            widget: string
+          - hint: >-
+              Original text: Kiefer R.E.S.E.T. ist ein sanftes energetisches
+              Verfahren, welches die Kiefermuskeln entspannt und das
+              Kiefergelenk ausgleicht. Ein balancierter Kiefer hat einen
+              Einfluss auf den ganzen Körper und stellt ihn wieder ins
+              Gleichgewicht und führt ihn in eine Tiefenentspannung. Die
+              Behandlung hilft bei folgenden Problemen:, key: 4ff14e97
+            label: Text
+            name: 4ff14e97
+            widget: text
+          - hint: 'Original text: Zähneknirschen, key: 66e9e000'
+            label: Text
+            name: 66e9e000
+            widget: string
+          - hint: 'Original text: Zahnschmerzen, key: 3cf6a0b4'
+            label: Text
+            name: 3cf6a0b4
+            widget: string
+          - hint: >-
+              Original text: Anspannungen im Nacken- und Rückenbereich, key:
+              47f10015
+            label: Text
+            name: 47f10015
+            widget: string
+          - hint: 'Original text: Kopfschmerzen, key: -4c25a899'
+            label: Text
+            name: '-4c25a899'
+            widget: string
+          - hint: 'Original text: Chronische Schmerzen, key: d4f336b'
+            label: Text
+            name: d4f336b
+            widget: string
+          - hint: 'Original text: Tinnitus, key: -75ba4e62'
+            label: Text
+            name: '-75ba4e62'
+            widget: string
+          - hint: 'Original text: Was führt Sie zu mir?, key: 439357da'
+            label: Text
+            name: 439357da
+            widget: string
+          - hint: >-
+              Original text: Sie können mich per Kontaktformular, Telefon oder
+              E-Mail kontaktieren., key: 1da868e
+            label: Text
+            name: 1da868e
+            widget: string
+          - hint: >-
+              Original text: Ich werde Ihnen umgehend antworten, um einen Termin
+              abzumachen. Ich freue mich, Sie kennenzulernen., key: -2c94cb03
+            label: Text
+            name: '-2c94cb03'
+            widget: text
+          - hint: 'Original text: E-Mail, key: 785cfe5f'
+            label: Text
+            name: 785cfe5f
+            widget: string
+          - hint: 'Original text: mail@mail.ch, key: -65e4a58d'
+            label: Text
+            name: '-65e4a58d'
+            widget: string
+          - hint: 'Original text: Telefon, key: e0648bb'
+            label: Text
+            name: e0648bb
+            widget: string
+          - hint: 'Original text: +41 78 814 04 50, key: 3b738ceb'
+            label: Text
+            name: 3b738ceb
+            widget: string
+          - hint: 'Original text: Adresse, key: 1f8fc88f'
+            label: Text
+            name: 1f8fc88f
+            widget: string
+          - hint: >-
+              Original text: Avenue du Général-Guisan 19, 3960 Sierre, key:
+              -17530b77
+            label: Text
+            name: '-17530b77'
+            widget: string
+          - hint: 'Original text: auswählen..., key: 5fc42ad5'
+            label: Text
+            name: 5fc42ad5
+            widget: string
+          - hint: 'Original text: Beratung Kinderbetreuung, key: 777c4f48'
+            label: Text
+            name: 777c4f48
+            widget: string
+          - hint: >-
+              Original text: Thank you! Your submission has been received!, key:
+              5a0ea5a1
+            label: Text
+            name: 5a0ea5a1
+            widget: string
+          - hint: >-
+              Original text: Oops! Something went wrong while submitting the
+              form., key: -7c112e99
+            label: Text
+            name: '-7c112e99'
+            widget: string
+          - hint: 'Original text: Willkommen in meiner Praxis, key: 3fb1d99f'
+            label: Text
+            name: 3fb1d99f
+            widget: string
+          - hint: >-
+              Original text: Ich berate Sie gerne in der Gemeinschaftspraxis
+              Espace Chèndâ in Siders. Beratungen per Zoom sind auch möglich.,
+              key: 127a3ab8
+            label: Text
+            name: 127a3ab8
+            widget: text
+          - hint: 'Original text: Meine Angebote, key: -1a55221f'
+            label: Text
+            name: '-1a55221f'
+            widget: string
+          - hint: >-
+              Original text: Beratung Strukturen familienergänzende Betreuung,
+              key: 453fb853
+            label: Text
+            name: 453fb853
+            widget: string
+          - hint: 'Original text: Mitgliedschaften :, key: -168bec5b'
+            label: Text
+            name: '-168bec5b'
+            widget: string
+          - hint: >-
+              Original text: Die Bezahlung erfolgt direkt nach der Behandlung in
+              bar oder per TWINT. Für die Beratung von Strukturen
+              familienergänzenden Betreuung wird eine Rechnung ausgestellt.,
+              key: 720c2fae
+            label: Text
+            name: 720c2fae
+            widget: text
+          - hint: >-
+              Original text: Vereinbarte Termine sind verbindlich und müssen 24
+              Stunden im Voraus abgesagt werden. Ansonsten wird die Behandlung
+              in Rechnung gestellt., key: -428b1ed6
+            label: Text
+            name: '-428b1ed6'
+            widget: text
+          - hint: 'Original text: Cabinet, key: -7ca205c8'
+            label: Text
+            name: '-7ca205c8'
+            widget: string
+          - hint: 'Original text: Prestations, key: 1dc02d42'
+            label: Text
+            name: 1dc02d42
+            widget: string
+          - hint: 'Original text: À propos, key: 4b4273e7'
+            label: Text
+            name: 4b4273e7
+            widget: string
+          - hint: 'Original text: Tarifs, key: -6b1c9aaf'
+            label: Text
+            name: '-6b1c9aaf'
+            widget: string
+          - hint: 'Original text: Contact, key: -64104400'
+            label: Text
+            name: '-64104400'
+            widget: string
+          - hint: 'Original text: Cabinet de conseil et de santé, key: 7f88a467'
+            label: Text
+            name: 7f88a467
+            widget: string
+          - hint: "Original text: \"Pour y voir clair, il suffit de changer la direction du regard\_\"., key: 41e60fc3"
+            label: Text
+            name: 41e60fc3
+            widget: string
+          - hint: 'Original text: Legal, key: 45e7299'
+            label: Text
+            name: '45e7299'
+            widget: string
+          - hint: 'Original text: Bienvenue dans mon, key: 39b71ecf'
+            label: Text
+            name: 39b71ecf
+            widget: string
+          - hint: 'Original text: cabinet, key: 20256258'
+            label: Text
+            name: '20256258'
+            widget: string
+          - hint: "Original text: Je suis heureuse de vous conseiller dans l’espace de co-working«\_Espace Chèndâ\_» à Sierre. Des consultations via zoom sont également possibles., key: 44c23c2f"
+            label: Text
+            name: 44c23c2f
+            widget: text
+          - hint: 'Original text: Me Prestations, key: 1d5c0eda'
+            label: Text
+            name: 1d5c0eda
+            widget: string
+          - hint: 'Original text: Conseils psychologiques, key: -408f3451'
+            label: Text
+            name: '-408f3451'
+            widget: string
+          - hint: 'Original text: Conseil et accompagnement, key: 6347db74'
+            label: Text
+            name: 6347db74
+            widget: string
+          - hint: >-
+              Original text: des structures d'accueil extra-familial de jour,
+              key: 585040fe
+            label: Text
+            name: 585040fe
+            widget: string
+          - hint: 'Original text: Mâchoire R.E.S.E.T., key: -5ab746e4'
+            label: Text
+            name: '-5ab746e4'
+            widget: string
+          - hint: 'Original text: Affilitation:, key: -e0d9d8c'
+            label: Text
+            name: '-e0d9d8c'
+            widget: string
+          - hint: >-
+              Original text: Vous êtes confronté/e à une situation de vie
+              difficile ou une thématique vous préoccupe? Vous êtes à un
+              tournant de votre vie et vous cherchez une réorientation ? Je vous
+              écoute avec attention et vous accompagne dans votre développement
+              personnel. Je serai ravie de vous conseiller sur les sujets
+              suivants :, key: 3788b35b
+            label: Text
+            name: 3788b35b
+            widget: text
+          - hint: 'Original text: Questionnements existentiels, key: 4db0ca9f'
+            label: Text
+            name: 4db0ca9f
+            widget: string
+          - hint: 'Original text: Questionnements identitaires, key: -f18145b'
+            label: Text
+            name: '-f18145b'
+            widget: string
+          - hint: 'Original text: Problèmes d''estime de soi, key: 2016bd3a'
+            label: Text
+            name: 2016bd3a
+            widget: string
+          - hint: 'Original text: Problèmes relationnels, key: -72257a30'
+            label: Text
+            name: '-72257a30'
+            widget: string
+          - hint: 'Original text: Hypersensibilité, key: 4479625f'
+            label: Text
+            name: 4479625f
+            widget: string
+          - hint: >-
+              Original text: Questionnements liés à la femme (désir enfant,
+              maternité, couple, ménopause…), key: -71be316e
+            label: Text
+            name: '-71be316e'
+            widget: string
+          - hint: 'Original text: Séparation / deuil, key: -b78a130'
+            label: Text
+            name: '-b78a130'
+            widget: string
+          - hint: 'Original text: Attachement / détachement, key: -2dc72f87'
+            label: Text
+            name: '-2dc72f87'
+            widget: string
+          - hint: 'Original text: États dépressifs, key: -60598d1d'
+            label: Text
+            name: '-60598d1d'
+            widget: string
+          - hint: 'Original text: Anxiété, key: 30f858e0'
+            label: Text
+            name: 30f858e0
+            widget: string
+          - hint: 'Original text: Questions sur l’éducation, key: 7ca88edc'
+            label: Text
+            name: 7ca88edc
+            widget: string
+          - hint: 'Original text: Stress et burnout, key: 4e064e7a'
+            label: Text
+            name: 4e064e7a
+            widget: string
+          - hint: >-
+              Original text: Accompagnement de proches souffrant de troubles
+              psychiques, key: -5273141e
+            label: Text
+            name: '-5273141e'
+            widget: string
+          - hint: >-
+              Original text: Conseil et accompagnement des structures d'accueil
+              extra-familial de jour, key: 2c042052
+            label: Text
+            name: 2c042052
+            widget: string
+          - hint: >-
+              Original text: Vous souhaitez une amélioration de la qualité dans
+              votre entreprise et aimeriez accompagner vos
+              collaboratrices/collaborateurs sur des sujets pédagogiques en
+              développer davantage leur savoir-faire et leurs compétences. Je
+              vous propose ce qui suit :, key: 4372a1a0
+            label: Text
+            name: 4372a1a0
+            widget: text
+          - hint: >-
+              Original text: Évaluation et analyse de la qualité des compétences
+              et des procédures dans l’entreprise, key: -f3d8332
+            label: Text
+            name: '-f3d8332'
+            widget: string
+          - hint: >-
+              Original text: Accompagnement du processus de développement de
+              qualité, key: 19bba235
+            label: Text
+            name: 19bba235
+            widget: string
+          - hint: >-
+              Original text: Conseils professionnels sur des questions
+              pédagogiques, key: -7a0601db
+            label: Text
+            name: '-7a0601db'
+            widget: string
+          - hint: >-
+              Original text: Witnessing des professionnels en situations
+              concrètes dans l’entreprise, key: -ca6e624
+            label: Text
+            name: '-ca6e624'
+            widget: string
+          - hint: "Original text: Le neurotango est une méthode thérapeutique inspirée du tango argentin, qui permet à travers la musique et le mouvement un effet positif dans le domaine cognitif, neurologique, psychique et social. Je propose l'utilisation de cette méthode en individuel, en couple ou en groupe pour les problèmes suivants\_:, key: -578ff4f1"
+            label: Text
+            name: '-578ff4f1'
+            widget: text
+          - hint: 'Original text: Démence, key: -5f0f854d'
+            label: Text
+            name: '-5f0f854d'
+            widget: string
+          - hint: 'Original text: Perte, deuil, solitude, key: 446fda4'
+            label: Text
+            name: 446fda4
+            widget: string
+          - hint: >-
+              Original text: Rôles et responsabilité dans le couple, key:
+              5522490a
+            label: Text
+            name: 5522490a
+            widget: string
+          - hint: "Original text: Mâchoire R.E.S.E.T. est un traitement énergétique doux qui permet la relaxation de l’articulation temporo-mandibulaire ce qui a un impact sur tout le corps en le rééquilibrant et en l’entraînant le dans une relaxation profonde. Ce traitement est appliqué aux problèmes suivants\_:, key: -440dd309"
+            label: Text
+            name: '-440dd309'
+            widget: text
+          - hint: 'Original text: Maux de dents, key: 6e4ff596'
+            label: Text
+            name: 6e4ff596
+            widget: string
+          - hint: 'Original text: Grincement de dents, key: -14037723'
+            label: Text
+            name: '-14037723'
+            widget: string
+          - hint: 'Original text: Tension dans le cou et le dos, key: -6c575d9c'
+            label: Text
+            name: '-6c575d9c'
+            widget: string
+          - hint: 'Original text: Maux de tête, key: 3524945d'
+            label: Text
+            name: 3524945d
+            widget: string
+          - hint: 'Original text: Douleurs chroniques, key: -7ea6f644'
+            label: Text
+            name: '-7ea6f644'
+            widget: string
+          - hint: 'Original text: Acouphènes, key: 5a3ba154'
+            label: Text
+            name: 5a3ba154
+            widget: string
+          - hint: "Original text: Dans mon activité de consultante, vous et ce que vous vivez à l’instant présent êtes au centre de mon attention. Je vous rencontre dans un cadre de respect et d’empathie pour que vous puissiez évoluer vers une plus grande conscience de vous, de votre croissance et de l’actualisation de votre potentiel. Mon approche est\_:, key: 9b2813e"
+            label: Text
+            name: 9b2813e
+            widget: text
+          - hint: 'Original text: Globale:, key: -1c6ee888'
+            label: Text
+            name: '-1c6ee888'
+            widget: string
+          - hint: "Original text: J’ai une approche globale\_de l’être humain et il m’est important d’aborder la personne dans sa dimension corporelle, psychique, sociale, spirituelle ainsi que dans sa dimension de l’espace et du temps., key: -1f88117a"
+            label: Text
+            name: '-1f88117a'
+            widget: text
+          - hint: 'Original text: Bienveillante:, key: -2a8cea6e'
+            label: Text
+            name: '-2a8cea6e'
+            widget: string
+          - hint: >-
+              Original text: Dans un climat de bienveillance, il m’est important
+              que vous vous sentiez accueilli/e dans votre singularité., key:
+              4cd53a9
+            label: Text
+            name: 4cd53a9
+            widget: text
+          - hint: 'Original text: Axée sur les ressources:, key: 49ce64df'
+            label: Text
+            name: 49ce64df
+            widget: string
+          - hint: >-
+              Original text: Je vous aide à découvrir vos ressources et à les
+              intégrer dans un processus de changement bénéfique., key:
+              -26cbb870
+            label: Text
+            name: '-26cbb870'
+            widget: text
+          - hint: 'Original text: Orientée processus:, key: -225da9b4'
+            label: Text
+            name: '-225da9b4'
+            widget: string
+          - hint: >-
+              Original text: Dans ma consultation, j’initie avec vous votre
+              processus de changement personnel ou collectif et vous accompagne
+              dans votre développement., key: -716de083
+            label: Text
+            name: '-716de083'
+            widget: text
+          - hint: 'Original text: Diplômes, key: fbf7948'
+            label: Text
+            name: fbf7948
+            widget: string
+          - hint: >-
+              Original text: Formation diplomante en psychologie-conseil,
+              Institut de Somatopsychothérapie ISP Zurich, en formation depuis
+              2021, key: -16bb2211
+            label: Text
+            name: '-16bb2211'
+            widget: text
+          - hint: >-
+              Original text: Professeure de tango, La Real Academia de Tango
+              Argentino Buenos Aires, 2016, key: -13fe1685
+            label: Text
+            name: '-13fe1685'
+            widget: string
+          - hint: >-
+              Original text: Pédagogue en éducation précoce spécialisée, ISP de
+              l’Université de Bâle, 1997, key: 23b2079a
+            label: Text
+            name: 23b2079a
+            widget: string
+          - hint: >-
+              Original text: Éducatrice de la petite enfance, BFF Bern, 1991,
+              key: -7449e81d
+            label: Text
+            name: '-7449e81d'
+            widget: string
+          - hint: 'Original text: Certificats, key: -2837167b'
+            label: Text
+            name: '-2837167b'
+            widget: string
+          - hint: >-
+              Original text: Mâchoire R.E.S.E.T., Apamed Rapperswil-Jona, 2022,
+              key: -7b09322
+            label: Text
+            name: '-7b09322'
+            widget: string
+          - hint: >-
+              Original text: Neurotango ® Practitioner, selon Simone Schafhorst
+              Allemagne, 2021, key: 2565803e
+            label: Text
+            name: 2565803e
+            widget: string
+          - hint: >-
+              Original text: Communication non-violente selon M. Rosenberg,
+              séminaire de base, Pfäffikon ZH, 2018, key: 4b71d954
+            label: Text
+            name: 4b71d954
+            widget: string
+          - hint: >-
+              Original text: Auditrice accréditée QualiIPE, Berne, 2014, key:
+              6b71f682
+            label: Text
+            name: 6b71f682
+            widget: string
+          - hint: >-
+              Original text: Études anthropologiques, Institut européen d’études
+              anthropologiques Fribourg, 2005-2007, key: 3e6b1651
+            label: Text
+            name: 3e6b1651
+            widget: string
+          - hint: "Original text: Prêt/e pour une consultation\_?, key: -1da2f93e"
+            label: Text
+            name: '-1da2f93e'
+            widget: string
+          - hint: "Original text: Osez le premier pas\_!, key: -2ffb1ff1"
+            label: Text
+            name: '-2ffb1ff1'
+            widget: string
+          - hint: >-
+              Original text: Le paiement s’effectue en espèces ou par TWINT
+              après chaque séance (sauf pour conseil structures d’accueil), un
+              récépissé vous est remis. Merci de prévenir 24h à l’avance en cas
+              d’annulation afin d’éviter la facturation de la séance., key:
+              -39e41b50
+            label: Text
+            name: '-39e41b50'
+            widget: text
+          - hint: "Original text: Qu'est-ce qui \_vous amène à moi ?Vous pouvez me contacter via le formulaire de contact, par téléphone ou par email. Je vous répondrai rapidement pour fixer un rendez-vous. Je me réjouis de vous rencontrer., key: 4a954728"
+            label: Text
+            name: 4a954728
+            widget: text
+          - hint: 'Original text: choisir..., key: 3b7e11d1'
+            label: Text
+            name: 3b7e11d1
+            widget: string
+          - hint: 'Original text: Conseil extra-familial, key: 21a3db85'
+            label: Text
+            name: 21a3db85
+            widget: string
+      - label: Links
+        name: links
+        file: cms/_data/links.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Links
+          - hint: 'Original link: /, key: 2f'
+            label: Link
+            name: 2f
+            widget: string
+          - hint: 'Original link: /de/praxis, key: 3be5daa2'
+            label: Link
+            name: 3be5daa2
+            widget: string
+          - hint: 'Original link: /de/angebot, key: 20d06dfd'
+            label: Link
+            name: 20d06dfd
+            widget: string
+          - hint: 'Original link: /de/about, key: 11431ae'
+            label: Link
+            name: 11431ae
+            widget: string
+          - hint: 'Original link: /de/konditionen, key: 2c62666d'
+            label: Link
+            name: 2c62666d
+            widget: string
+          - hint: 'Original link: /de/kontakt, key: 33ed0901'
+            label: Link
+            name: 33ed0901
+            widget: string
+          - hint: 'Original link: /fr/cabinet, key: -1bca0e7c'
+            label: Link
+            name: '-1bca0e7c'
+            widget: string
+          - hint: 'Original link: #, key: 23'
+            label: Link
+            name: '23'
+            widget: string
+          - hint: 'Original link: https://konoha-design.com, key: 645c55b1'
+            label: Link
+            name: 645c55b1
+            widget: string
+          - hint: 'Original link: /de/impressum, key: 5b226618'
+            label: Link
+            name: 5b226618
+            widget: string
+          - hint: 'Original link: /fr/legal, key: -7edc331b'
+            label: Link
+            name: '-7edc331b'
+            widget: string
+          - hint: 'Original link: /fr/page, key: -1499fd1d'
+            label: Link
+            name: '-1499fd1d'
+            widget: string
+          - hint: 'Original link: /fr/a-propos-de-moi, key: 50438681'
+            label: Link
+            name: '50438681'
+            widget: string
+          - hint: 'Original link: /fr/prestations, key: -280c6172'
+            label: Link
+            name: '-280c6172'
+            widget: string
+          - hint: 'Original link: /fr/contact, key: -3384cb4'
+            label: Link
+            name: '-3384cb4'
+            widget: string
+          - hint: >-
+              Original link:
+              https://corinne-cina.webflow.io/de/angebot/#angebot1, key:
+              -752a63e7
+            label: Link
+            name: '-752a63e7'
+            widget: string
+          - hint: >-
+              Original link:
+              https://corinne-cina.webflow.io/de/angebot/#angebot2, key:
+              -752a63e6
+            label: Link
+            name: '-752a63e6'
+            widget: string
+          - hint: >-
+              Original link:
+              https://corinne-cina.webflow.io/de/angebot/#angebot3, key:
+              -752a63e5
+            label: Link
+            name: '-752a63e5'
+            widget: string
+          - hint: >-
+              Original link:
+              https://corinne-cina.webflow.io/de/angebot/#angebot4, key:
+              -752a63e4
+            label: Link
+            name: '-752a63e4'
+            widget: string
+          - hint: 'Original link: https://alumni-ikp.ch, key: -684277fb'
+            label: Link
+            name: '-684277fb'
+            widget: string
+          - hint: 'Original link: /fr/tarifs, key: -4f36ab7b'
+            label: Link
+            name: '-4f36ab7b'
+            widget: string
+          - hint: >-
+              Original link:
+              https://corinne-cina.webflow.io/fr/prestations/#angebot1, key:
+              30ac59ea
+            label: Link
+            name: 30ac59ea
+            widget: string
+          - hint: >-
+              Original link:
+              https://corinne-cina.webflow.io/fr/prestations/#angebot2, key:
+              30ac59eb
+            label: Link
+            name: 30ac59eb
+            widget: string
+          - hint: >-
+              Original link:
+              https://corinne-cina.webflow.io/fr/prestations/#angebot3, key:
+              30ac59ec
+            label: Link
+            name: 30ac59ec
+            widget: string
+          - hint: >-
+              Original link:
+              https://corinne-cina.webflow.io/fr/prestations/#angebot4, key:
+              30ac59ed
+            label: Link
+            name: 30ac59ed
+            widget: string
+      - label: Images
+        name: images
+        file: cms/_data/images.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Images
+          - label: Image
+            name: 667df312
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i2237ab1f
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 6d5acaac
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 30dbf55
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 779a8828
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i578695a6
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i625fd4a
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i9d5136a
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: idbeef19
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i39e28229
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 29dcfff0
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 8dc2450
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 7497b54f
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '31650252'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i3a568ead
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 59ede054
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i62df6caf
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 58b43e70
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i35e0a2a3
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: idf2b63c
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 656a0bb0
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 78e188f0
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 2f3f8ac6
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 23fa05cf
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i47c18b30
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i1f38ad2e
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 95030d4
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 750bc1d3
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i626b602b
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 31d90ed6
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 4c82e3d1
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i3f0e3a94
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: aaa9352
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i55ea6dc
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i41da3930
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i4f7bfd2
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 47164de3
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i2b12ca92
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i1e9ba4e7
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 4f0456f8
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 70fc90a5
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 6c890f16
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 9ef3c01
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-7b0ff80c'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 429255f7
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 56ac6cc
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 63d3600f
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 2ba21d9e
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 25ec77ea
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-4a013d15'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 730f620e
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-3dd98892'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-40bb09c8'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 5293d4ee
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 58a3f9a4
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+publish_mode: editorial_workflow
