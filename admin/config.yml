@@ -825,9 +825,9 @@ collections:
             label: Text
             name: 49c9b557
             widget: text
-          - hint: 'Original text: Me Prestations, key: 1d5c0eda'
+          - hint: 'Original text: Mes Prestations, key: 5c50465d'
             label: Text
-            name: 1d5c0eda
+            name: 5c50465d
             widget: string
           - hint: 'Original text: Conseils psychologiques, key: -408f3451'
             label: Text
